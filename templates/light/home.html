@@ -1,17 +1,19 @@
 {% load static %}
+{% load website_tags %}
 {% load owner_tags %}
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <title>Amirhossein Fathollahi - Professional Resume - CV | Summary of performance and activities of software engineer amirhossein fathollahi</title>
+    <title>{% meta_title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Amirhossein Fathollahi - Professional Resume - CV | Summary of performance and activities of software engineer amirhossein fathollahi" />
-    <meta name="keywords" content="resume, cv, amir hossein, fathollahi, amirhossein, amirhossein fathollahi, " />
-    <meta name="author" content="lmpixels" />
+    <meta name="description" content="{% meta_description %}" />
+    <meta name="keywords" content="{% keywords %}" />
+    <meta name="author" content="{% meta_author %}" />
     <link rel="shortcut icon" href="{% static 'favicon.iso' %}">
-
 
     <link rel="stylesheet" href="{% static 'light____/css/reset.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'light____/css/bootstrap-grid.min.css' %}" type="text/css">
@@ -28,7 +30,6 @@
     <!-- Animated Background -->
     <div class="lm-animated-bg" style="background-image: url({% static 'light____/img/main_bg.png' %});"></div>
     <!-- /Animated Background -->
-
     <!-- Loading animation -->
     <div class="preloader">
       <div class="preloader-animation">
@@ -270,61 +271,25 @@
                     <div class="col-xs-12 col-sm-12">
                       <div class="testimonials owl-carousel">
                         <!-- Testimonial 1 -->
+                        {% for testimonial in testimonials %}
                         <div class="testimonial">
                           <div class="img">
-                            <img src="{% static 'light____/img/testimonials/testimonial-1.jpg' %}" alt="Alex Smith">
+                            <img src="{{ testimonial.user_image.url }}" alt="{{ testimonial.user_name }}">
                           </div>
                           <div class="text">
-                            <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
+                            <p>{{ testimonial.detail }}</p>
                           </div>
 
                           <div class="author-info">
-                            <h4 class="author">Julia Hickman</h4>
-                            <h5 class="company">Omni Source</h5>
+                            <h4 class="author">{{ testimonial.user_name }}</h4>
+                            <h5 class="company">{{ testimonial.subject }}</h5>
                             <div class="icon">
                               <i class="fas fa-quote-right"></i>
                             </div>
                           </div>
                         </div>
+                        {% endfor %}
                         <!-- End of Testimonial 1 -->
-
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial">
-                          <div class="img">
-                            <img src="{% static 'light____/img/testimonials/testimonial-2.jpg' %}" alt="Alex Smith">
-                          </div>
-                          <div class="text">
-                            <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
-                          </div>
-
-                          <div class="author-info">
-                            <h4 class="author">Robert Watkins</h4>
-                            <h5 class="company">Endicott Shoes</h5>
-                            <div class="icon">
-                              <i class="fas fa-quote-right"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- End of Testimonial 2 -->
-
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial">
-                          <div class="img">
-                            <img src="{% static 'light____/img/testimonials/testimonial-3.jpg' %}" alt="Alex Smith">
-                          </div>
-                          <div class="text">
-                            <p>Vivamus at molestie dui, eu ornare orci. Curabitur vel egestas dolor. Nulla condimentum nunc sit amet urna tempus finibus. Duis mollis leo id ligula pellentesque, at vehicula dui ultrices.</p>
-                          </div>
-
-                          <div class="author-info">
-                            <h4 class="author">Kristin Carroll</h4>
-                            <h5 class="company">Helping Hand</h5>
-                            <div class="icon">
-                              <i class="fas fa-quote-right"></i>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- End of Testimonial 3 -->
                       </div>
                     </div>
                   </div>
@@ -344,49 +309,13 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-12">
                       <div class="clients owl-carousel">
-                        
+                        {% for client in clients %}
                         <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-1.png' %}" alt="Logo">
+                          <a href="{{ client.website_link }}" target="_blank" title="{{ client.name }}">
+                            <img src="{{ client.logo.url }}" alt="Logo">
                           </a>
                         </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-2.png' %}" alt="Logo">
-                          </a>
-                        </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-3.png' %}" alt="Logo">
-                          </a>
-                        </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-4.png' %}" alt="Logo">
-                          </a>
-                        </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-5.png' %}" alt="Logo">
-                          </a>
-                        </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-6.png' %}" alt="Logo">
-                          </a>
-                        </div>
-
-                        <div class="client-block">
-                          <a href="#" target="_blank" title="Logo">
-                            <img src="{% static 'light____/img/clients/client-7.png' %}" alt="Logo">
-                          </a>
-                        </div>
-  
+                        {% endfor %}
                       </div>
                     </div>
                   </div>
@@ -515,79 +444,27 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-7">
 
+                      {% for subject in resume_subjects %}
                       <div class="block-title">
-                        <h3>Education</h3>
+                        <h3>{{ subject.name }}</h3>
                       </div>
-                      
-                      <div class="timeline timeline-second-style clearfix">
-                        <div class="timeline-item clearfix">
-                          <div class="left-part">
-                            <h5 class="item-period">2008</h5>
-                            <span class="item-company">University of Studies</span>
+                          {% for experience_detail in subject.owner_experience_detail.all %}
+                          <div class="timeline timeline-second-style clearfix">
+                            <div class="timeline-item clearfix">
+                              <div class="left-part">
+                                <h5 class="item-period">{{ experience_detail.starting_year }} - {{ experience_detail.ending_year }}</h5>
+                                <span class="item-company">{{ experience_detail.the_place }}</span>
+                              </div>
+                              <div class="divider"></div>
+                              <div class="right-part">
+                                <h4 class="item-title">{{ experience_detail.subject }}</h4>
+                                <p>{{ experience_detail.content }}</p>
+                              </div>
+                            </div>
                           </div>
-                          <div class="divider"></div>
-                          <div class="right-part">
-                            <h4 class="item-title">Frontend Development</h4>
-                            <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
-                          </div>
-                        </div>
-
-                        <div class="timeline-item clearfix">
-                          <div class="left-part">
-                            <h5 class="item-period">2007</h5>
-                            <span class="item-company">University of Studies</span>
-                          </div>
-                          <div class="divider"></div>
-                          <div class="right-part">
-                            <h4 class="item-title">Graphic Design</h4>
-                            <p>Aliquam tincidunt malesuada tortor vitae iaculis. In eu turpis iaculis, feugiat risus quis, aliquet urna. Quisque fringilla mollis risus, eu pulvinar dolor.</p>
-                          </div>
-                        </div>
-                      </div>
-
+                          {% endfor %}
                       <div class="white-space-50"></div>
-
-                      <div class="block-title">
-                        <h3>Experience</h3>
-                      </div>
-
-                      <div class="timeline timeline-second-style clearfix">
-                        <div class="timeline-item clearfix">
-                          <div class="left-part">
-                            <h5 class="item-period">2016 - Current</h5>
-                            <span class="item-company">Google</span>
-                          </div>
-                          <div class="divider"></div>
-                          <div class="right-part">
-                            <h4 class="item-title">Lead Ui/Ux Designer</h4>
-                            <p>Praesent dignissim sollicitudin justo, sed elementum quam lacinia quis. Phasellus eleifend tristique posuere. Sed vitae dui nec magna.</p>
-                          </div>
-                        </div>
-
-                        <div class="timeline-item clearfix">
-                          <div class="left-part">
-                            <h5 class="item-period">2013 - 2016</h5>
-                            <span class="item-company">Adobe</span>
-                          </div>
-                          <div class="divider"></div>
-                          <div class="right-part">
-                            <h4 class="item-title">Senior Ui/Ux Designer</h4>
-                            <p>Maecenas tempus faucibus rutrum. Duis eu aliquam urna. Proin vitae nulla tristique, ornare felis id, congue libero. Nam volutpat euismod quam.</p>
-                          </div>
-                        </div>
-                        
-                        <div class="timeline-item clearfix">
-                          <div class="left-part">
-                            <h5 class="item-period">2011 - 2013</h5>
-                            <span class="item-company">Google</span>
-                          </div>
-                          <div class="divider"></div>
-                          <div class="right-part">
-                            <h4 class="item-title">Junior Ui/Ux Designer</h4>
-                            <p>Duis mollis nunc quis quam viverra venenatis. Nulla nulla arcu, congue vitae nunc ac, sodales ultricies diam. Nullam justo leo, tincidunt sit amet.</p>
-                          </div>
-                        </div>
-                      </div>
+                      {% endfor %}
 
                     </div>
 
@@ -710,15 +587,9 @@
                       </div>
 
                       <ul class="knowledges">
-                        <li>Marketing</li>
-                        <li>Print</li>
-                        <li>Digital Design</li>
-                        <li>Social Media</li>
-                        <li>Time Management</li>
-                        <li>Communication</li>
-                        <li>Problem-Solving</li>
-                        <li>Social Networking</li>
-                        <li>Flexibility</li>
+                        {% for kn in knowledge %}
+                        <li>{{ kn }}</li>
+                        {% endfor %}
                       </ul>
                       <!-- End of Knowledges -->
                     </div>
@@ -737,22 +608,23 @@
                   </div>
                   
                   <div class="row">
+                    {% for certificate in certificates %}
                     <!-- Certificate 1 -->
                     <div class="col-xs-12 col-sm-6">
                       <div class="certificate-item clearfix">
                         <div class="certi-logo">
-                          <img src="{% static 'light____/img/clients/client-1.png' %}" alt="logo">
+                          <img src="{{ certificate.logo.url }}" alt="logo">
                         </div>
                         
                         <div class="certi-content">
                           <div class="certi-title">
-                            <h4>Psyhology of Intertnation Design</h4>
+                            <h4>{{ certificate.detail}}</h4>
                           </div>
                           <div class="certi-id">
-                            <span>Membership ID: XXXX</span>
+                            <span>{{ certificate.certify_by }}</span>
                           </div>
                           <div class="certi-date">
-                            <span>19 April 2018</span>
+                            <span>{{ certificate.certified_date }}</span>
                           </div>
                           <div class="certi-company">
                             <span></span>
@@ -761,31 +633,7 @@
                       </div>
                     </div>
                     <!-- End of Certificate 1 -->
-
-                    <!-- Certificate 2 -->
-                    <div class="col-xs-12 col-sm-6">
-                      <div class="certificate-item clearfix">
-                        <div class="certi-logo">
-                          <img src="{% static 'light____/img/clients/client-1.png' %}" alt="logo">
-                        </div>
-                        
-                        <div class="certi-content">
-                          <div class="certi-title">
-                            <h4>Psyhology of Intertnation Design</h4>
-                          </div>
-                          <div class="certi-id">
-                            <span>Membership ID: XXXX</span>
-                          </div>
-                          <div class="certi-date">
-                            <span>19 April 2018</span>
-                          </div>
-                          <div class="certi-company">
-                            <span></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End of Certificate 2 -->
+                    {% endfor %}
 
                   </div>
                   <!-- End of Certificates -->
@@ -830,16 +678,16 @@
                         <!-- Portfolio Grid -->
                         <div class="portfolio-grid three-columns">
                           
-                          <figure class="item lbaudio" data-groups='["category_all", "category_soundcloud"]'>
-                            <div class="portfolio-item-img">
-                              <img src="{% static 'light____/img/portfolio/1.jpg' %}" alt="SoundCloud Audio" title="" />
-                              <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true" class="lightbox mfp-iframe" title="SoundCloud Audio"></a>
-                            </div>
-
-                            <i class="fa fa-volume-up"></i>
-                            <h4 class="name">SoundCloud Audio</h4>
-                            <span class="category">SoundCloud</span>
-                          </figure>
+{#                          <figure class="item lbaudio" data-groups='["category_all", "category_soundcloud"]'>#}
+{#                            <div class="portfolio-item-img">#}
+{#                              <img src="{% static 'light____/img/portfolio/1.jpg' %}" alt="SoundCloud Audio" title="" />#}
+{#                              <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/221650664&#038;color=%23ff5500&#038;auto_play=false&#038;hide_related=false&#038;show_comments=true&#038;show_user=true&#038;show_reposts=false&#038;show_teaser=true&#038;visual=true" class="lightbox mfp-iframe" title="SoundCloud Audio"></a>#}
+{#                            </div>#}
+{##}
+{#                            <i class="fa fa-volume-up"></i>#}
+{#                            <h4 class="name">SoundCloud Audio</h4>#}
+{#                            <span class="category">SoundCloud</span>#}
+{#                          </figure>#}
 
                           <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
                             <div class="portfolio-item-img">
@@ -852,16 +700,16 @@
                             <span class="category">Detailed</span>
                           </figure>
 
-                          <figure class="item lbvideo" data-groups='["category_all", "category_vimeo-videos"]'>
-                            <div class="portfolio-item-img">
-                              <img src="{% static 'light____/img/portfolio/3.jpg' %}" alt="Vimeo Video 1" title="" />
-                              <a href="https://player.vimeo.com/video/158284739" class="lightbox mfp-iframe" title="Vimeo Video 1"></a>
-                            </div>
-
-                            <i class="fas fa-video"></i>
-                            <h4 class="name">Vimeo Video 1</h4>
-                            <span class="category">Vimeo Videos</span>
-                          </figure>
+{#                          <figure class="item lbvideo" data-groups='["category_all", "category_vimeo-videos"]'>#}
+{#                            <div class="portfolio-item-img">#}
+{#                              <img src="{% static 'light____/img/portfolio/3.jpg' %}" alt="Vimeo Video 1" title="" />#}
+{#                              <a href="https://player.vimeo.com/video/158284739" class="lightbox mfp-iframe" title="Vimeo Video 1"></a>#}
+{#                            </div>#}
+{##}
+{#                            <i class="fas fa-video"></i>#}
+{#                            <h4 class="name">Vimeo Video 1</h4>#}
+{#                            <span class="category">Vimeo Videos</span>#}
+{#                          </figure>#}
 
                           <figure class="item standard" data-groups='["category_all", "category_detailed"]'>
                             <div class="portfolio-item-img">
@@ -922,14 +770,14 @@
                               <div class="category">
                                 <a href="#" title="View all posts in Design">Design</a>
                               </div>
-                              <a href="blog-post-1.html">
+                              <a href="{% url 'blog:blog' %}">
                                 <img src="{% static 'light____/img/blog/blog_post_1.jpg' %}" class="size-blog-masonry-image-two-c" alt="Why I Switched to Sketch For UI Design" title="" />
                                 <div class="mask"></div>
                               </a>
                             </div>
                             <div class="post-info">
                               <div class="post-date">05 Mar 2020</div>
-                              <a href="blog-post-1.html">
+                              <a href="{% url 'blog:blog' %}">
                                 <h4 class="blog-item-title">Why I Switched to Sketch For UI Design</h4>
                               </a>
                             </div>
@@ -1118,7 +966,7 @@
     </div>
 
     <script src="{% static 'light____/js/jquery-2.1.3.min.js' %}"></script>
-    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script src="{% static 'light____/js/modernizr.custom.js' %}"></script>
     <script src="{% static 'light____/js/animating.js' %}"></script>
     <script src="{% static 'light____/js/imagesloaded.pkgd.min.js' %}"></script>
 {#    <script src='{% static 'light____/img/clients/client-3.png' %}https://www.google.com/recaptcha/api.js'></script>#}
